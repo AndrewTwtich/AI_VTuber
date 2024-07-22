@@ -6,7 +6,7 @@ import os.path
 import winsound
 import socket
 
-#check https://twitchapps.com/tmi/ to update your chat password before everytime you stream
+#check https://twitchapps.com/tmi/ to update your OAuth password before everytime you stream
 server = 'irc.chat.twitch.tv'
 port = 6667
 nickname = 'andrew_livestream'
