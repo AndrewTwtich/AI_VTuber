@@ -9,7 +9,7 @@ import socket
 server = 'irc.chat.twitch.tv'
 port = 6667
 nickname = 'andrew_livestream'
-token = 'oauth:whk7u4rfqq6fljsf9madjs43hukn8u'
+token = 'oauth:vt3hbmsoibfmys96ue0cf0zc4puwxo'
 channel = '#andrew_livestream'
 
 # download and load all models
@@ -29,7 +29,7 @@ def converting(text):
         os.remove('/outputs.wav')
     audio = generate_audio_from_long_text(text, prompt="bronya")
     write_wav("outputs.wav", SAMPLE_RATE, audio)
-    winsound.PlaySound('/outputs.wav', winsound.SND_ALIAS)
+    winsound.PlaySound('outputs.wav', winsound.SND_ALIAS)
     winsound.PlaySound(None, winsound.SND_ALIAS)
 
 # Chat with an intelligent assistant in your terminal
@@ -39,7 +39,7 @@ def converting(text):
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 history = [
-    {"role": "system", "content": "你是一位虛擬實況主。你的目的是主持一個線上直播並且與觀看的人互動、聊天或是玩遊戲，你只能使用利用繁體中文回答，請用友善、口語化的語氣互動"},
+    {"role": "system", "content": "你是一位虛擬實況主。你的目的是主持一個線上直播並且與觀看的人互動、聊天或是玩遊戲，你只能使用利用繁體中文回答，請用友善、簡短的語氣互動"},
     {"role": "user", "content": "請自我介紹"},
 ]
 
@@ -51,7 +51,7 @@ while True:
         stream=True,
     )
 
-    new_message = {"role": "assistant", "content": ""}
+    new_message = {"role": "assistant", "content": " "}
     
     for chunk in completion:
         if chunk.choices[0].delta.content:
